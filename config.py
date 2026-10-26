@@ -9,4 +9,11 @@ class Config(object):
     DATABASE_NAME = config("DATABASE_NAME", default="forwardBot")
     BOT_OWNER_ID = [int(id) for id in config("OWNER_ID", default="").split() if id]
     BOT_SESSION = config("BOT_SESSION", default="forward_bot")
+
+class temp(object):
+    # डेवलपर की कोडिंग के लिए ज़रूरी एक्स्ट्रा वेरिएबल्स
+    CODE = ""
+    ID = ""
+    U_NAME = ""
+    B_NAME = ""
     
