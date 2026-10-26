@@ -1,18 +1,12 @@
-from os import environ 
+import os
+from decouple import config
 
-class Config:
-    API_ID = environ.get("API_ID", "577678")
-    API_HASH = environ.get("API_HASH", "d2c6e01uuiuiouioiuiou0fc6d7a1be")
-    BOT_TOKEN = environ.get("BOT_TOKEN", "70955...") 
-    BOT_SESSION = environ.get("BOT_SESSION", "bot") 
-    DATABASE_URI = environ.get("DATABASE", "mongodb+srv://chhjgjkkjhkjhkjh@cluster0.xowzpr4.mongodb.net/")
-    DATABASE_NAME = environ.get("DATABASE_NAME", "forward-bot")
-    BOT_OWNER_ID = [int(id) for id in environ.get("BOT_OWNER_ID", '6964148334').split()]
-
-class temp(object): 
-    lock = {}
-    CANCEL = {}
-    forwardings = 0
-    BANNED_USERS = []
-    IS_FRWD_CHAT = []
+class Config(object):
+    # इसमें कुछ भी नहीं बदलना है, यह सीधे रेंडर से क्रेडेंशियल उठाएगा
+    API_ID = config("API_ID", default=None, cast=int)
+    API_HASH = config("API_HASH", default=None)
+    BOT_TOKEN = config("BOT_TOKEN", default=None)
+    DATABASE_URI = config("MONGO_DB_URI", default=None)
+    DATABASE_NAME = config("DATABASE_NAME", default="forwardBot")
+    BOT_OWNER_ID = [int(id) for id in config("OWNER_ID", default="").split() if id]
     
